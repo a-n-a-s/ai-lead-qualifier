@@ -1,0 +1,1313 @@
+{
+  "nodes": [
+    {
+      "parameters": {
+        "options": {
+          "responseMode": "lastNode"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.chatTrigger",
+      "typeVersion": 1.4,
+      "position": [
+        -464,
+        -272
+      ],
+      "id": "62bb89c5-2938-4bbf-b8bb-22c1f0184816",
+      "name": "When chat message received",
+      "webhookId": "6a542c79-d402-4524-8aaa-c95e310c2b5a"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "value": "openai/gpt-oss-20b",
+          "mode": "list",
+          "cachedResultName": "openai/gpt-oss-20b"
+        },
+        "builtInTools": {},
+        "options": {
+          "temperature": 0.3
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.3,
+      "position": [
+        -224,
+        -48
+      ],
+      "id": "8b538484-4771-4acc-b308-28f7f24af81b",
+      "name": "OpenAI Chat Model",
+      "credentials": {
+        "openAiApi": {
+          "id": "T1Pp3bvL09Fed2HW",
+          "name": "OpenAI account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "contextWindowLength": 20
+      },
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "typeVersion": 1.4,
+      "position": [
+        -96,
+        -48
+      ],
+      "id": "9b4b05dc-fde6-4b5a-82c1-8c2e0d1f08b8",
+      "name": "Simple Memory"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "value": "openai/gpt-oss-20b",
+          "mode": "list",
+          "cachedResultName": "openai/gpt-oss-20b"
+        },
+        "builtInTools": {},
+        "options": {
+          "temperature": 0.3
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.3,
+      "position": [
+        864,
+        48
+      ],
+      "id": "ee466eff-9c03-4aee-8f9f-873a80cfec5c",
+      "name": "OpenAI Chat Model1",
+      "credentials": {
+        "openAiApi": {
+          "id": "T1Pp3bvL09Fed2HW",
+          "name": "OpenAI account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "documentId": {
+          "__rl": true,
+          "value": "180NQZQoOE_6rw4JKUZIk_H10_Sfmrbzt5OmgFW8rDbQ",
+          "mode": "list",
+          "cachedResultName": "triven",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/180NQZQoOE_6rw4JKUZIk_H10_Sfmrbzt5OmgFW8rDbQ/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Sheet1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/180NQZQoOE_6rw4JKUZIk_H10_Sfmrbzt5OmgFW8rDbQ/edit#gid=0"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Email": "={{ $('Extract Lead JSON').item.json.email }}",
+            "Name": "=",
+            "lead_score": "={{ $json.lead_score }}",
+            "Score": "''",
+            "Priority": "={{ $json.priority }}",
+            "qualified": "={{ $json.qualified }}",
+            "bussiness_fit": "={{ $json.business_fit }}",
+            "strategic_alignment": "={{ $json.strategic_alignment }}",
+            "recommended_action": "={{ $json.recommended_action }}",
+            "reasoning ": "={{ $json.reasoning }}",
+            "summary": "={{ $json.summary }}"
+          },
+          "matchingColumns": [
+            "Email"
+          ],
+          "schema": [
+            {
+              "id": "Name",
+              "displayName": "Name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Email",
+              "displayName": "Email",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Company",
+              "displayName": "Company",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Industry",
+              "displayName": "Industry",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Team Size",
+              "displayName": "Team Size",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Current Software / Workflow",
+              "displayName": "Current Software / Workflow",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Pain Points",
+              "displayName": "Pain Points",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Budget",
+              "displayName": "Budget",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Timeline",
+              "displayName": "Timeline",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Decision Maker",
+              "displayName": "Decision Maker",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Score",
+              "displayName": "Score",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "lead_score",
+              "displayName": "lead_score",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Priority",
+              "displayName": "Priority",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "qualified",
+              "displayName": "qualified",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "bussiness_fit",
+              "displayName": "bussiness_fit",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "strategic_alignment",
+              "displayName": "strategic_alignment",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "recommended_action",
+              "displayName": "recommended_action",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "reasoning ",
+              "displayName": "reasoning ",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "summary",
+              "displayName": "summary",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "row_number",
+              "displayName": "row_number",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "number",
+              "canBeUsedToMatch": true,
+              "readOnly": true,
+              "removed": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        1360,
+        -176
+      ],
+      "id": "528ed70f-982b-4916-a0c3-edf57edea425",
+      "name": "Update row in sheet",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "C2lEEuqsar1Ub9cb",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "const text =$('Conversation Agent').first().json.output\n\nconst message = text.split(\"LEAD_DATA_START\")[0].trim();\n\nreturn [\n  {\n    json: {\n      message:\"Thank you , We'll be reaching out to you soon.\"\n    }\n  }\n];\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2704,
+        -80
+      ],
+      "id": "5eefe4ae-b03b-4edc-ac93-32cbf0a8c688",
+      "name": "Code in JavaScript2"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $json.chatInput }}",
+        "options": {
+          "systemMessage": "You are Alex, an experienced AI Business Discovery Consultant.\n\nYour role is to conduct a natural business discovery conversation with potential clients while maintaining an internal structured lead profile.\n\nYour objective is to understand the client's business challenges, determine whether AI solutions can help, and collect enough information to qualify the opportunity.\n\nonversation Opening\n\nWhen the conversation begins:\n\n- Introduce yourself as Alex, an AI Business Discovery Consultant.\n- Briefly explain your role and the purpose of the conversation.\n- Inform the user that you'll ask a few questions to understand their requirements.\n- Start by asking about their business challenge or goal.\n- Do not begin by asking for contact details.\n\n━━━━━━━━━━━━━━━━━━━━━━\n\nCRITICAL RULES\n\n- Never reference LinkedIn, Google, or external sources.\n- Never assume, infer, or invent information.\n- Only use information explicitly provided by the user.\n- Never ask for information that has already been provided.\n- Ask only ONE question at a time.\n- Keep responses conversational and professional.\n- Acknowledge the user's previous answer before asking the next question.\n- Prioritize understanding the client's business before collecting contact information.\n- Avoid sounding like a survey or form.\n- If the user naturally provides multiple pieces of information, extract all of them without asking again.\n- If the user asks a question, answer it first before continuing the discovery conversation.\n\n━━━━━━━━━━━━━━━━━━━━━━\n\nInternally track the following fields:\n\n- Name\n- Email\n- Company\n- Industry\n- Team Size\n- Current Software / Workflow\n- Pain Points\n- Budget\n- Timeline\n- Decision Maker\n\nNever reveal or display this internal tracking.\n\n━━━━━━━━━━━━━━━━━━━━━━\n\nConversation Strategy\n\nBegin by understanding:\n\n- What problem the client wants to solve.\n- Their business or company.\n- Their current workflow.\n- Their biggest pain points.\n\nThen naturally gather:\n\n- Industry\n- Team Size\n- Budget\n- Timeline\n- Decision Maker\n\nFinally, before ending the conversation, collect:\n\n- Name\n- Email\n\nOnly ask questions that feel relevant to the ongoing conversation.\n\n━━━━━━━━━━━━━━━━━━━━━━\n\nAfter every user message:\n\n1. Read the entire conversation.\n2. Update the internal lead profile.\n3. Identify missing required information.\n4. Respond naturally to what the user said.\n5. Ask ONE relevant follow-up question that moves the conversation forward.\n\n━━━━━━━━━━━━━━━━━━━━━━\n\nRequired fields before completion:\n\n- Name\n- Company\n- Email\n- Pain Point\n- Budget\n- Timeline\n\nAll other fields are optional.\n\n━━━━━━━━━━━━━━━━━━━━━━\n\nCompletion Rules\n\nWhen ALL required fields have been collected:\n\n- Stop asking questions.\n- Thank the customer.\n- Output the structured lead data exactly as shown below.\n- Do not add any explanation after the JSON.\n\nOutput format:\n\nThank you for sharing all the required information. Our team will review your requirements and contact you shortly.\n\nLEAD_DATA_START\n{\n  \"name\": null,\n  \"email\": null,\n  \"company\": null,\n  \"industry\": null,\n  \"team_size\": null,\n  \"current_software\": null,\n  \"pain_points\": null,\n  \"budget\": null,\n  \"timeline\": null,\n  \"decision_maker\": null\n}\nLEAD_DATA_END\n\nRules:\n\n- Return valid JSON only between LEAD_DATA_START and LEAD_DATA_END.\n- Use double quotes for all keys and string values.\n- Use numbers for budget whenever possible.\n- Use null for unknown optional fields.\n- Never invent missing information.\n- Never output markdown or code fences."
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 3.1,
+      "position": [
+        -240,
+        -272
+      ],
+      "id": "45e6496a-4b9c-4a63-abec-cd3c30b6f875",
+      "name": "Conversation Agent"
+    },
+    {
+      "parameters": {
+        "jsCode": "const text = $input.first().json.output;\n\n// Extract JSON between the markers\nconst match = text.match(/LEAD_DATA_START\\s*([\\s\\S]*?)\\s*LEAD_DATA_END/);\n\nif (!match) {\n  throw new Error(\"Lead data not found\");\n}\n\nconst leadData = JSON.parse(match[1]);\n\nreturn [\n  {\n    json: leadData\n  }\n];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        336,
+        -176
+      ],
+      "id": "3f9c7b80-3353-4711-96e2-5359fffc0144",
+      "name": "Extract Lead JSON"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "c4af5107-6185-4226-a8bc-ebcf306a7e5d",
+              "leftValue": "={{ $json.output }}",
+              "rightValue": "LEAD_DATA_START",
+              "operator": {
+                "type": "string",
+                "operation": "contains"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        112,
+        -272
+      ],
+      "id": "5a5e4a05-6ee7-4826-b9ba-cf9df3259ec5",
+      "name": "Check Lead Complete"
+    },
+    {
+      "parameters": {
+        "operation": "appendOrUpdate",
+        "documentId": {
+          "__rl": true,
+          "value": "180NQZQoOE_6rw4JKUZIk_H10_Sfmrbzt5OmgFW8rDbQ",
+          "mode": "list",
+          "cachedResultName": "triven",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/180NQZQoOE_6rw4JKUZIk_H10_Sfmrbzt5OmgFW8rDbQ/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Sheet1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/180NQZQoOE_6rw4JKUZIk_H10_Sfmrbzt5OmgFW8rDbQ/edit#gid=0"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Email": "={{ $json.email }}",
+            "Name": "={{ $json.name }}",
+            "Company": "={{ $json.company }}",
+            "Industry": "={{ $json.industry }}",
+            "Team Size": "={{ $json.team_size }}",
+            "Current Software / Workflow": "={{ $json.current_software }}",
+            "Pain Points": "={{ $json.pain_points }}",
+            "Budget": "={{ $json.budget }}",
+            "Timeline": "={{ $json.timeline }}",
+            "Decision Maker": "={{ $json.decision_maker }}",
+            "Score": "''",
+            "lead_score": "''",
+            "Priority": "''",
+            "qualified": "''",
+            "strategic_alignment": "''",
+            "recommended_action": "''",
+            "summary": "''"
+          },
+          "matchingColumns": [
+            "Email"
+          ],
+          "schema": [
+            {
+              "id": "Name",
+              "displayName": "Name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Email",
+              "displayName": "Email",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Company",
+              "displayName": "Company",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Industry",
+              "displayName": "Industry",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Team Size",
+              "displayName": "Team Size",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Current Software / Workflow",
+              "displayName": "Current Software / Workflow",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Pain Points",
+              "displayName": "Pain Points",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Budget",
+              "displayName": "Budget",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Timeline",
+              "displayName": "Timeline",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Decision Maker",
+              "displayName": "Decision Maker",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Score",
+              "displayName": "Score",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "lead_score",
+              "displayName": "lead_score",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Priority",
+              "displayName": "Priority",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "qualified",
+              "displayName": "qualified",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "business_fit",
+              "displayName": "business_fit",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "strategic_alignment",
+              "displayName": "strategic_alignment",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "recommended_action",
+              "displayName": "recommended_action",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "reasoning",
+              "displayName": "reasoning",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "summary",
+              "displayName": "summary",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        560,
+        -176
+      ],
+      "id": "7e0c1c84-c411-4b81-bc63-ded781256bc2",
+      "name": "Save Lead",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "C2lEEuqsar1Ub9cb",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $('Conversation Agent').item.json.output }}",
+        "options": {
+          "systemMessage": "You are a Business Development Manager.\n\nInput: A JSON object containing lead information.\n\nEvaluate the lead based only on the provided data.\n\nCompany Focus:\n- AI Agents\n- Workflow Automation\n- CRM/API Integrations\n- Custom AI Solutions\n\nTarget Clients:\n- SMBs\n- Startups\n- SaaS\n- Healthcare\n- Logistics\n- E-commerce\n\nScoring\n\nBudget\n>=20000 = 30\n10000-19999 = 20\n<10000 = 10\n\nTimeline\n<=3 months = 25\n<=6 months = 15\n>6 months = 5\n\nDecision Maker\nYes = 20\nNo/Unknown = 10\n\nPain Point\nPresent = 15\nMissing = 0\n\nTeam Size\n>=10 = 10\n<10 = 5\n\nCalculate:\n- lead_score (0-100)\n- priority (High >=80, Medium >=50, Low <50)\n- qualified (score >=50)\n\nAlso determine:\n- business_fit (Excellent, Good, Fair, Poor)\n- strategic_alignment (High, Medium, Low)\n\nRecommended Action:\n- Schedule Discovery Call\n- Schedule Technical Demo\n- Request More Information\n- Nurture Lead\n- Not a Good Fit\n\nReturn ONLY valid JSON.\n\n{\n  \"lead_score\": 0,\n  \"priority\": \"\",\n  \"qualified\": false,\n  \"business_fit\": \"\",\n  \"strategic_alignment\": \"\",\n  \"recommended_action\": \"\",\n  \"reasoning\": [],\n  \"summary\": \"\"\n}\n\nRules:\n- Use only the input JSON.\n- Never infer missing values.\n- Keep reasoning to 3 short points.\n- Summary: one sentence.\n- Output JSON only."
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 3.1,
+      "position": [
+        784,
+        -176
+      ],
+      "id": "83abf8ae-c156-48f8-ab47-8d7cfdad2127",
+      "name": "Business Qualification"
+    },
+    {
+      "parameters": {
+        "jsCode": "const parsed = JSON.parse($input.first().json.output);\n\n// Convert reasoning array to a single string\nif (Array.isArray(parsed.reasoning)) {\n  parsed.reasoning = parsed.reasoning.join(\" | \");\n}\n\nreturn [\n  {\n    json: parsed\n  }\n];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1136,
+        -176
+      ],
+      "id": "5511741e-5505-47ae-baac-d03374975a79",
+      "name": "Update Lead Score"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "d1b2a1d6-9487-48ae-8fe5-6132d4d92f2d",
+              "leftValue": "={{ $json.qualified }}",
+              "rightValue": true,
+              "operator": {
+                "type": "boolean",
+                "operation": "equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        1584,
+        -176
+      ],
+      "id": "44deb72e-9eb3-4642-835a-b1e912450544",
+      "name": "Qualified Lead?"
+    },
+    {
+      "parameters": {
+        "calendar": {
+          "__rl": true,
+          "value": "classroom101645360204585492485@group.calendar.google.com",
+          "mode": "list",
+          "cachedResultName": "6 D"
+        },
+        "start": "={{ $now.plus(1, 'day') }}",
+        "end": "={{ $now.plus(1, 'day').plus(1,'hour') }}",
+        "additionalFields": {
+          "attendees": [
+            "={{ $json.Email }}",
+            "mirzaanas815@gmail.com"
+          ],
+          "description": "Trizen meeting"
+        }
+      },
+      "type": "n8n-nodes-base.googleCalendar",
+      "typeVersion": 1.3,
+      "position": [
+        2032,
+        -80
+      ],
+      "id": "847470fd-bda8-42ce-a922-cd1e0de5fb35",
+      "name": "Schedule Discovery Call",
+      "credentials": {
+        "googleCalendarOAuth2Api": {
+          "id": "Ew2QLhSoP03zQRZr",
+          "name": "Google Calendar account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "sendTo": "mirzaanas815@gmail.com",
+        "subject": "New Lead Found",
+        "message": "=<p>Hi Team,</p>\n\n<p>A new qualified lead has been received.</p>\n\n<p>\n<strong>Name:</strong> {{ $('Save Lead').item.json.Name }}<br>\n<strong>Company:</strong> {{ $('Save Lead').item.json.Company }}<br>\n<strong>Score:</strong> {{ $('Update Lead Score').item.json.lead_score }}<br>\n<strong>Priority:</strong> {{ $('Update Lead Score').item.json.priority }}\n</p>\n\n<p><strong>Reason:</strong></p>\n\n<p>{{ $('Update Lead Score').item.json.reasoning }}</p>\n\n<p><strong>Recommended Action:</strong></p>\n\n<p>{{ $('Update Lead Score').item.json.recommended_action }}</p>\n\n<p>Please follow up with the lead at the earliest opportunity.</p>\n\n<p>Thanks,<br>\nAI Lead System</p>",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.2,
+      "position": [
+        2480,
+        -80
+      ],
+      "id": "f72d4af6-e050-4bc4-893c-6039dc58f599",
+      "name": "Notify Sales Team",
+      "webhookId": "bddbdc4e-af5b-49d4-871c-8b78bc8e9df4",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "5WXtPKmN6SQTi989",
+          "name": "Gmail account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "sendTo": "={{ $('Qualified Lead?').item.json.Email }}",
+        "subject": "Meeting Confirmation – Discovery Call",
+        "message": "=<p>Hi,</p>\n\n<p>Thank you for your interest in <strong>CBIT Services</strong>.</p>\n\n<p>Your discovery call has been scheduled.</p>\n\n<p>📅 <strong>Date &amp; Time:</strong> {{ $json.start.dateTime }}<br>\n⏱ <strong>Duration:</strong> 1 hour</p>\n\n<p>The calendar invitation has been sent to this email address. You can join the meeting using the link included in the invitation.</p>\n\n<p>During the session, we'll:</p>\n\n<ul>\n  <li>Understand your current challenges</li>\n  <li>Discuss your business goals</li>\n  <li>Explore possible technology solutions</li>\n  <li>Answer any questions you may have</li>\n</ul>\n\n<p>If you need to reschedule, simply reply to this email.</p>\n\n<p>We look forward to speaking with you!</p>\n\n<p>Best regards,<br>\nCBIT Services</p>",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.2,
+      "position": [
+        2256,
+        -80
+      ],
+      "id": "d47995e2-8a16-4c63-8e7a-d84c826b09e4",
+      "name": "Customer Confirmation Email",
+      "webhookId": "0716f218-fbcd-423f-b824-c1c0315bbaf0",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "5WXtPKmN6SQTi989",
+          "name": "Gmail account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "authentication": "airtableOAuth2Api",
+        "operation": "create",
+        "base": {
+          "__rl": true,
+          "value": "appOELphM37msiOzf",
+          "mode": "list",
+          "cachedResultName": "Untitled Base",
+          "cachedResultUrl": "https://airtable.com/appOELphM37msiOzf"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblZVPt2a0GSBQtuk",
+          "mode": "list",
+          "cachedResultName": "Imported table",
+          "cachedResultUrl": "https://airtable.com/appOELphM37msiOzf/tblZVPt2a0GSBQtuk"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Name": "={{ $('Extract Lead JSON').item.json.name }}",
+            "Email": "={{ $('Extract Lead JSON').item.json.email }}",
+            "Company": "={{ $('Extract Lead JSON').item.json.company }}",
+            "Industry": "={{ $('Extract Lead JSON').item.json.industry }}",
+            "Team Size": "={{ $('Extract Lead JSON').item.json.team_size }}",
+            "Current Software / Workflow": "={{ $('Extract Lead JSON').item.json.current_software }}",
+            "Pain Points": "={{ $('Extract Lead JSON').item.json.pain_points }}",
+            "Budget": "={{ $('Extract Lead JSON').item.json.budget }}",
+            "Timeline": "={{ $('Extract Lead JSON').item.json.timeline }}",
+            "Decision Maker": "={{ $('Extract Lead JSON').item.json.decision_maker }}",
+            "Score": "={{ $('Update row in sheet').item.json.lead_score }}",
+            "lead_score": "={{ $('Update row in sheet').item.json.lead_score }}",
+            "Priority": "={{ $('Update row in sheet').item.json.Priority }}",
+            "qualified": "={{ $('Update row in sheet').item.json.qualified }}",
+            "bussiness_fit": "={{ $('Update row in sheet').item.json.bussiness_fit }}",
+            "recommended_action": "={{ $('Update row in sheet').item.json.recommended_action }}",
+            "strategic_alignment": "={{ $('Update row in sheet').item.json.strategic_alignment }}",
+            "reasoning": "={{ $('Update row in sheet').item.json['reasoning '] }}",
+            "summary": "={{ $('Update row in sheet').item.json.summary }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "Name",
+              "displayName": "Name",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Email",
+              "displayName": "Email",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Company",
+              "displayName": "Company",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Industry",
+              "displayName": "Industry",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Team Size",
+              "displayName": "Team Size",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "number",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Current Software / Workflow",
+              "displayName": "Current Software / Workflow",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Pain Points",
+              "displayName": "Pain Points",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Budget",
+              "displayName": "Budget",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Timeline",
+              "displayName": "Timeline",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Decision Maker",
+              "displayName": "Decision Maker",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Score",
+              "displayName": "Score",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "lead_score",
+              "displayName": "lead_score",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "number",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Priority",
+              "displayName": "Priority",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "qualified",
+              "displayName": "qualified",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "bussiness_fit",
+              "displayName": "bussiness_fit",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "strategic_alignment",
+              "displayName": "strategic_alignment",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "recommended_action",
+              "displayName": "recommended_action",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "reasoning",
+              "displayName": "reasoning",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "summary",
+              "displayName": "summary",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.2,
+      "position": [
+        1808,
+        -272
+      ],
+      "id": "b354a148-f1d2-4c71-9e4e-4887108960fd",
+      "name": "Create a record",
+      "credentials": {
+        "airtableOAuth2Api": {
+          "id": "WiBG6j21iOF3HCBM",
+          "name": "Airtable Personal Access Token account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "return items.map(item => {\n  item.json.output = \"Thank you for contacting us. We will reach out to you soon.\";\n  return item;\n});"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        336,
+        -368
+      ],
+      "id": "9357fca3-8784-4d30-9358-3fd0915e803c",
+      "name": "Code in JavaScript"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "dc44b26b-4a46-4dd1-b1aa-7e6aef5c44ae",
+              "leftValue": "",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "equals",
+                "name": "filter.operator.equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        1808,
+        -80
+      ],
+      "id": "7f5708cc-7d39-47b4-86d5-d8952f25bdf5",
+      "name": "If"
+    }
+  ],
+  "connections": {
+    "When chat message received": {
+      "main": [
+        [
+          {
+            "node": "Conversation Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Conversation Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Simple Memory": {
+      "ai_memory": [
+        [
+          {
+            "node": "Conversation Agent",
+            "type": "ai_memory",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model1": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Business Qualification",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Update row in sheet": {
+      "main": [
+        [
+          {
+            "node": "Qualified Lead?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Conversation Agent": {
+      "main": [
+        [
+          {
+            "node": "Check Lead Complete",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Extract Lead JSON": {
+      "main": [
+        [
+          {
+            "node": "Save Lead",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Check Lead Complete": {
+      "main": [
+        [
+          {
+            "node": "Extract Lead JSON",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Code in JavaScript",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Save Lead": {
+      "main": [
+        [
+          {
+            "node": "Business Qualification",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Business Qualification": {
+      "main": [
+        [
+          {
+            "node": "Update Lead Score",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Update Lead Score": {
+      "main": [
+        [
+          {
+            "node": "Update row in sheet",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Qualified Lead?": {
+      "main": [
+        [
+          {
+            "node": "Create a record",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "If",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Schedule Discovery Call": {
+      "main": [
+        [
+          {
+            "node": "Customer Confirmation Email",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Notify Sales Team": {
+      "main": [
+        [
+          {
+            "node": "Code in JavaScript2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Customer Confirmation Email": {
+      "main": [
+        [
+          {
+            "node": "Notify Sales Team",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If": {
+      "main": [
+        [
+          {
+            "node": "Schedule Discovery Call",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "pinData": {},
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "571cae0b53f34b233fd2299c691089a4143b0a048f75222eb95904a7a049d6c3"
+  }
+}
